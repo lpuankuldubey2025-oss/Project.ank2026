@@ -1,0 +1,749 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ankul Dubey — Creative Developer & Designer. Explore my portfolio showcasing innovative projects, technical skills, and creative solutions.">
+    <title>Ankul | Creative Developer & Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.js">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Ambient Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" id="nav-logo">
+                <span class="logo-bracket">&lt;</span>Ankul<span class="logo-dot">.</span>Dubey<span
+                    class="logo-bracket">/&gt;</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link" data-text="About">About</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating 3D Shapes (Global Decorators) -->
+    <div class="floating-shapes" id="floating-shapes" aria-hidden="true">
+        <div class="shape shape-diamond" style="--x: 8%; --y: 20%; --size: 30px; --delay: 0s; --dur: 18s;"></div>
+        <div class="shape shape-pyramid" style="--x: 92%; --y: 15%; --size: 40px; --delay: -3s; --dur: 22s;"></div>
+        <div class="shape shape-ring" style="--x: 85%; --y: 60%; --size: 50px; --delay: -6s; --dur: 20s;"></div>
+        <div class="shape shape-cross" style="--x: 5%; --y: 70%; --size: 24px; --delay: -9s; --dur: 16s;"></div>
+        <div class="shape shape-diamond" style="--x: 15%; --y: 85%; --size: 20px; --delay: -4s; --dur: 24s;"></div>
+        <div class="shape shape-octahedron" style="--x: 90%; --y: 40%; --size: 35px; --delay: -7s; --dur: 19s;"></div>
+        <div class="shape shape-ring" style="--x: 50%; --y: 90%; --size: 28px; --delay: -2s; --dur: 21s;"></div>
+        <div class="shape shape-pyramid" style="--x: 70%; --y: 80%; --size: 22px; --delay: -11s; --dur: 17s;"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content" style="perspective: 1200px;">
+            <div class="hero-text-wrapper">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name" id="hero-name">
+                    <span class="name-letter" style="--i:0">Ankul Dubey</span>
+                </h1>
+                <p class="hero-tagline">
+                    <span class="tagline-word" style="--d:0">Creative</span>
+                    <span class="tagline-separator">•</span>
+                    <span class="tagline-word" style="--d:1">Developer</span>
+                    <span class="tagline-separator">•</span>
+                    <span class="tagline-word" style="--d:2">Designer</span>
+                </p>
+                <p class="hero-description">I craft immersive digital experiences that blend cutting-edge technology
+                    with thoughtful design.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary" id="btn-explore">
+                        <span>Explore My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-outline" id="btn-contact">Let's Talk</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cube" id="floating-cube">
+                    <div class="cube-face cube-front"></div>
+                    <div class="cube-face cube-back"></div>
+                    <div class="cube-face cube-right"></div>
+                    <div class="cube-face cube-left"></div>
+                    <div class="cube-face cube-top"></div>
+                    <div class="cube-face cube-bottom"></div>
+                </div>
+                <!-- 3D Orbit Rings -->
+                <div class="hero-orbit" id="hero-orbit">
+                    <div class="orbit-ring orbit-ring-1">
+                        <div class="orbit-dot"></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <div class="orbit-dot"></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-3">
+                        <div class="orbit-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 3D Depth Layers (parallax on mouse move) -->
+        <div class="depth-layer" data-depth="0.02" aria-hidden="true">
+            <div class="depth-shape depth-shape-1"></div>
+            <div class="depth-shape depth-shape-2"></div>
+        </div>
+        <div class="depth-layer" data-depth="0.05" aria-hidden="true">
+            <div class="depth-shape depth-shape-3"></div>
+            <div class="depth-shape depth-shape-4"></div>
+        </div>
+        <div class="scroll-indicator" id="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">01</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-wrapper" style="perspective: 800px;">
+                    <div class="about-image-card" id="about-image-card">
+                        <div class="about-image-inner">
+                            <div class="about-avatar">
+                                <div class="avatar-ring"></div>
+                                <div class="avatar-initials">A</div>
+                            </div>
+                        </div>
+                        <div class="about-image-glow"></div>
+                        <!-- 3D Orbit decoration -->
+                        <div class="about-orbit">
+                            <div class="about-orbit-ring">
+                                <div class="about-orbit-dot" style="--orbit-i: 0;"></div>
+                                <div class="about-orbit-dot" style="--orbit-i: 1;"></div>
+                                <div class="about-orbit-dot" style="--orbit-i: 2;"></div>
+                                <div class="about-orbit-dot" style="--orbit-i: 3;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3 class="about-headline">Turning ideas into <span class="text-gradient">interactive
+                            realities</span></h3>
+                    <p class="about-text">I'm a passionate full-stack developer and designer with a keen eye for
+                        creating beautiful, functional web experiences. With expertise spanning modern frameworks,
+                        creative design, and performance optimization, I bring ideas to life through clean code and
+                        captivating interfaces.</p>
+                    <p class="about-text">When I'm not coding, you'll find me exploring new technologies, contributing
+                        to open-source projects, or refining my design skills. I believe in building products that are
+                        not only visually stunning but also accessible and performant.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">02</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" style="perspective: 1000px;" id="project-card-1">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                                    <line x1="8" y1="21" x2="16" y2="21" />
+                                    <line x1="12" y1="17" x2="12" y2="21" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title">E-Commerce Platform</h3>
+                            <p class="card-subtitle">Full-Stack Web App</p>
+                            <div class="card-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <div class="card-flip-hint">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 4v6h6" />
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                                </svg>
+                                <span>Hover to reveal</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="card-back-title">E-Commerce Platform</h3>
+                            <p class="card-back-desc">A modern, responsive e-commerce store with user authentication,
+                                product search & filtering, shopping cart, and Stripe payment integration. Built with
+                                performance and SEO in mind.</p>
+                            <div class="card-back-links">
+                                <a href="#" class="card-link" id="link-ecommerce-live">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="card-link" id="link-ecommerce-code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6" />
+                                        <polyline points="8 6 2 12 8 18" />
+                                    </svg>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" style="perspective: 1000px;" id="project-card-2">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon" style="--accent: 160, 100%, 65%;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                    <path d="M2 17l10 5 10-5" />
+                                    <path d="M2 12l10 5 10-5" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title">AI Dashboard</h3>
+                            <p class="card-subtitle">Data Visualization</p>
+                            <div class="card-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">D3.js</span>
+                            </div>
+                            <div class="card-flip-hint">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 4v6h6" />
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                                </svg>
+                                <span>Hover to reveal</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="card-back-title">AI Dashboard</h3>
+                            <p class="card-back-desc">An intelligent analytics dashboard that uses machine learning to
+                                predict trends and display interactive data visualizations. Features real-time data
+                                streaming and custom chart components.</p>
+                            <div class="card-back-links">
+                                <a href="#" class="card-link" id="link-ai-live">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="card-link" id="link-ai-code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6" />
+                                        <polyline points="8 6 2 12 8 18" />
+                                    </svg>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" style="perspective: 1000px;" id="project-card-3">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon" style="--accent: 280, 85%, 65%;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Secure Auth System</h3>
+                            <p class="card-subtitle">Backend Architecture</p>
+                            <div class="card-tags">
+                                <span class="tag">Node.js</span>
+                                <span class="tag">JWT</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <div class="card-flip-hint">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 4v6h6" />
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                                </svg>
+                                <span>Hover to reveal</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="card-back-title">Secure Auth System</h3>
+                            <p class="card-back-desc">A robust authentication micro-service with OAuth 2.0, JWT tokens,
+                                role-based access control, and two-factor authentication. Designed for scalability and
+                                security best practices.</p>
+                            <div class="card-back-links">
+                                <a href="#" class="card-link" id="link-auth-live">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="card-link" id="link-auth-code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6" />
+                                        <polyline points="8 6 2 12 8 18" />
+                                    </svg>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" style="perspective: 1000px;" id="project-card-4">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon" style="--accent: 30, 100%, 60%;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Mobile Fitness App</h3>
+                            <p class="card-subtitle">Cross-Platform App</p>
+                            <div class="card-tags">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Redux</span>
+                            </div>
+                            <div class="card-flip-hint">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 4v6h6" />
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                                </svg>
+                                <span>Hover to reveal</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="card-back-title">Mobile Fitness App</h3>
+                            <p class="card-back-desc">A cross-platform fitness tracking application with workout plans,
+                                progress analytics, social features, and push notifications. Integrated with HealthKit
+                                and Google Fit APIs.</p>
+                            <div class="card-back-links">
+                                <a href="#" class="card-link" id="link-fitness-live">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3" />
+                                    </svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="card-link" id="link-fitness-code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6" />
+                                        <polyline points="8 6 2 12 8 18" />
+                                    </svg>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Element Showcase Divider -->
+    <section class="section-3d-divider" id="divider-3d" aria-hidden="true">
+        <div class="divider-scene" style="perspective: 1000px;">
+            <div class="divider-torus" id="divider-torus">
+                <div class="torus-ring torus-ring-a"></div>
+                <div class="torus-ring torus-ring-b"></div>
+                <div class="torus-ring torus-ring-c"></div>
+                <div class="torus-ring torus-ring-d"></div>
+                <div class="torus-ring torus-ring-e"></div>
+                <div class="torus-ring torus-ring-f"></div>
+                <div class="torus-ring torus-ring-g"></div>
+                <div class="torus-ring torus-ring-h"></div>
+            </div>
+            <div class="divider-icosahedron" id="divider-icosahedron">
+                <div class="ico-face" style="--face-i: 0;"></div>
+                <div class="ico-face" style="--face-i: 1;"></div>
+                <div class="ico-face" style="--face-i: 2;"></div>
+                <div class="ico-face" style="--face-i: 3;"></div>
+                <div class="ico-face" style="--face-i: 4;"></div>
+                <div class="ico-face" style="--face-i: 5;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">03</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-showcase">
+                <!-- Rotating Cubes -->
+                <div class="skills-cubes">
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-1">
+                        <div class="skill-cube" style="--cube-color: 220, 90%, 60%;">
+                            <div class="cube-face-skill front">HTML</div>
+                            <div class="cube-face-skill back">95%</div>
+                            <div class="cube-face-skill right">Web</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">Dev</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-2">
+                        <div class="skill-cube" style="--cube-color: 200, 95%, 55%;">
+                            <div class="cube-face-skill front">CSS</div>
+                            <div class="cube-face-skill back">90%</div>
+                            <div class="cube-face-skill right">Style</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5z" />
+                                    <path d="M2 17l10 5 10-5" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">3D</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-3">
+                        <div class="skill-cube" style="--cube-color: 50, 95%, 55%;">
+                            <div class="cube-face-skill front">JS</div>
+                            <div class="cube-face-skill back">92%</div>
+                            <div class="cube-face-skill right">Logic</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">ES6+</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-4">
+                        <div class="skill-cube" style="--cube-color: 190, 90%, 50%;">
+                            <div class="cube-face-skill front">React</div>
+                            <div class="cube-face-skill back">88%</div>
+                            <div class="cube-face-skill right">UI</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">SPA</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-5">
+                        <div class="skill-cube" style="--cube-color: 130, 70%, 50%;">
+                            <div class="cube-face-skill front">Node</div>
+                            <div class="cube-face-skill back">85%</div>
+                            <div class="cube-face-skill right">API</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="8" rx="2" />
+                                    <rect x="2" y="14" width="20" height="8" rx="2" />
+                                    <circle cx="6" cy="6" r="1" />
+                                    <circle cx="6" cy="18" r="1" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">REST</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                    <div class="skill-cube-wrapper" style="perspective: 600px;" id="skill-cube-6">
+                        <div class="skill-cube" style="--cube-color: 280, 80%, 60%;">
+                            <div class="cube-face-skill front">Python</div>
+                            <div class="cube-face-skill back">80%</div>
+                            <div class="cube-face-skill right">ML</div>
+                            <div class="cube-face-skill left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2a10 10 0 1 0 10 10" />
+                                    <path d="M12 12l8-8" />
+                                    <path d="M12 2v10h10" />
+                                </svg>
+                            </div>
+                            <div class="cube-face-skill top">AI</div>
+                            <div class="cube-face-skill bottom">✦</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Progress Bars -->
+                <div class="skills-bars">
+                    <div class="skill-bar-item" id="skill-bar-html">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">HTML / CSS</span>
+                            <span class="skill-bar-percent">95%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="95" style="--bar-color: 220, 90%, 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" id="skill-bar-js">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">JavaScript / TypeScript</span>
+                            <span class="skill-bar-percent">92%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="92" style="--bar-color: 50, 95%, 55%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" id="skill-bar-react">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">React / Next.js</span>
+                            <span class="skill-bar-percent">88%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="88" style="--bar-color: 190, 90%, 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" id="skill-bar-node">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">Node.js / Express</span>
+                            <span class="skill-bar-percent">85%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="85" style="--bar-color: 130, 70%, 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" id="skill-bar-python">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">Python / ML</span>
+                            <span class="skill-bar-percent">80%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="80" style="--bar-color: 280, 80%, 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" id="skill-bar-db">
+                        <div class="skill-bar-header">
+                            <span class="skill-bar-name">Databases (SQL / NoSQL)</span>
+                            <span class="skill-bar-percent">82%</span>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="82" style="--bar-color: 350, 85%, 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">04</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <!-- 3D Wireframe Globe -->
+                    <div class="contact-globe" id="contact-globe">
+                        <div class="globe-ring globe-ring-equator"></div>
+                        <div class="globe-ring globe-ring-meridian-1"></div>
+                        <div class="globe-ring globe-ring-meridian-2"></div>
+                        <div class="globe-ring globe-ring-meridian-3"></div>
+                        <div class="globe-ring globe-ring-tropic-1"></div>
+                        <div class="globe-ring globe-ring-tropic-2"></div>
+                    </div>
+                    <h3 class="contact-headline">Let's build something <span class="text-gradient">amazing</span>
+                        together.</h3>
+                    <p class="contact-text">Whether you have a project idea, a question, or just want to connect — feel
+                        free to reach out. I'm always excited to collaborate on innovative ideas.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail-item" id="contact-email-item">
+                            <div class="contact-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">ankuldubeylpu2025@example.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item" id="contact-location-item">
+                            <div class="contact-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" id="social-github" aria-label="GitHub">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" id="social-linkedin" aria-label="LinkedIn">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" id="social-twitter" aria-label="Twitter">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" style="perspective: 1000px;">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group" id="form-group-name">
+                            <input type="text" id="form-name" class="form-input" placeholder=" " required
+                                autocomplete="name">
+                            <label for="form-name" class="form-label">Your Name</label>
+                            <div class="form-line"></div>
+                            <span class="form-error" id="error-name"></span>
+                        </div>
+                        <div class="form-group" id="form-group-email">
+                            <input type="email" id="form-email" class="form-input" placeholder=" " required
+                                autocomplete="email">
+                            <label for="form-email" class="form-label">Your Email</label>
+                            <div class="form-line"></div>
+                            <span class="form-error" id="error-email"></span>
+                        </div>
+                        <div class="form-group" id="form-group-subject">
+                            <input type="text" id="form-subject" class="form-input" placeholder=" " required>
+                            <label for="form-subject" class="form-label">Subject</label>
+                            <div class="form-line"></div>
+                            <span class="form-error" id="error-subject"></span>
+                        </div>
+                        <div class="form-group" id="form-group-message">
+                            <textarea id="form-message" class="form-input form-textarea" placeholder=" " required
+                                rows="4"></textarea>
+                            <label for="form-message" class="form-label">Your Message</label>
+                            <div class="form-line"></div>
+                            <span class="form-error" id="error-message"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" id="btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                                </svg>
+                            </span>
+                            <span class="btn-success">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Sent!
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Designed & Built by <span class="text-gradient">Ankul Dubey</span></p>
+                <p class="footer-copy">&copy; 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
